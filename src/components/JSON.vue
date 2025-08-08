@@ -86,15 +86,25 @@
       <p>Toggle visibility based on a condition.</p>
       <!-- Activity 13: Toggle the message visibility when the button is clicked. -->
       <!-- TODO: CODE TO TOGGLE MESSAGE VISIBILITY HERE. Hint: Use the v-if directive. -->
-      <button @click="showMessage = !showMessage">Toggle Message</button>
-      <p class="message success">✨ You're a Vue superstar! ✨</p>
-      <p>Click the button to see a message.</p>
+<button @click="showMessage = !showMessage">Toggle Message</button>
+<p v-if="showMessage" class="message success">
+  ✨ You're a Vue superstar! ✨
+</p>
+<p v-else class="message">Click the button to see a message.</p>
     </section>
 
     <section class="lab-section">
       <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
       <p>Highlighting Specific Authors:</p>
-
+      <ul>
+    <li 
+      v-for="author in authors" 
+      :key="author.id" 
+      :class="'highlight'"
+    >
+      {{ author.name }}
+    </li>
+  </ul>
     </section>
   </div>
 </template>
